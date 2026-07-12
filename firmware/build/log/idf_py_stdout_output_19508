@@ -1,0 +1,800 @@
+Command: C:\Espressif\python_env\idf6.0_py3.11_env\Scripts\python.exe C:\esp_install\.espressif\v6.0.1\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\MSI\Desktop\ESP_32\agri_sense\mqtt_pub\build\mqtt_pub.elf C:\Users\MSI\Desktop\ESP_32\agri_sense\mqtt_pub\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf6.0_py3.11_env\Scripts\python.exe' 'C:\esp_install\.espressif\v6.0.1\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jul 12 2026 13:00:00[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1e90ch (125196) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=0002e934 vaddr=3ffb0000 size=016e4h (  5860) load[0m
+[0;32mI (133) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9e08ch (647308) map[0m
+[0;32mI (365) esp_image: segment 3: paddr=000ce0b4 vaddr=3ffb16e4 size=02e44h ( 11844) load[0m
+[0;32mI (370) esp_image: segment 4: paddr=000d0f00 vaddr=40080000 size=15788h ( 87944) load[0m
+[0;32mI (406) esp_image: segment 5: paddr=000e6690 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (417) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (417) boot: Disabling RNG early entropy source...[0m
+[0;32mI (428) cpu_start: Multicore app[0m
+[0;32mI (436) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (436) cpu_start: Pro cpu start user code[0m
+[0;32mI (436) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (438) app_init: Application information:[0m
+[0;32mI (442) app_init: Project name:     mqtt_pub[0m
+[0;32mI (446) app_init: App version:      1[0m
+[0;32mI (449) app_init: Compile time:     Jul 12 2026 12:59:23[0m
+[0;32mI (454) app_init: ELF file SHA256:  729713ee9...[0m
+[0;32mI (459) app_init: ESP-IDF:          v6.0.1[0m
+[0;32mI (462) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (466) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (470) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (474) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (481) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (486) heap_init: At 3FFB8EB8 len 00027148 (156 KiB): DRAM[0m
+[0;32mI (491) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (496) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (502) heap_init: At 40095788 len 0000A878 (42 KiB): IRAM[0m
+[0;32mI (509) spi_flash: detected chip: generic[0m
+[0;32mI (511) spi_flash: flash io: dio[0m
+[0;33mW (514) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (528) main_task: Started on CPU0[0m
+[0;32mI (538) main_task: Calling app_main()[0m
+[0;32mI (538) mqtt_pub: MQTT Publisher starting[0m
+[0;32mI (578) wifi:wifi driver task: 3ffc0858, prio:23, stack:6656, core=0[0m
+[0;32mI (588) wifi:wifi firmware version: b37c951[0m
+[0;32mI (588) wifi:wifi certification version: v7.0[0m
+[0;32mI (588) wifi:config NVS flash: enabled[0m
+[0;32mI (588) wifi:config nano formatting: disabled[0m
+[0;32mI (598) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (598) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (598) wifi:Init management short buffer num: 32[0m
+[0;32mI (608) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (608) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (618) wifi:Init static rx buffer num: 10[0m
+[0;32mI (618) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (628) wifi_init: rx ba win: 6[0m
+[0;32mI (628) wifi_init: accept mbox: 6[0m
+[0;32mI (628) wifi_init: tcpip mbox: 32[0m
+[0;32mI (628) wifi_init: udp mbox: 6[0m
+[0;32mI (638) wifi_init: tcp mbox: 6[0m
+[0;32mI (638) wifi_init: tcp tx win: 5760[0m
+[0;32mI (638) wifi_init: tcp rx win: 5760[0m
+[0;32mI (648) wifi_init: tcp mss: 1440[0m
+[0;32mI (648) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (648) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (678) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (768) wifi:mode : sta (70:4b:ca:82:8e:ec)[0m
+[0;32mI (768) wifi:enable tsf[0m
+[0;32mI (768) mqtt_pub: wifi_init_sta finished. Connecting to SSID:SLT-4G_597084[0m
+[0;32mI (778) wifi:new:<5,0>, old:<1,0>, ap:<255,255>, sta:<5,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (788) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (788) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (798) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (828) wifi:connected with SLT-4G_597084, aid = 4, channel 5, BW20, bssid = 98:a9:42:59:70:84[0m
+[0;32mI (828) wifi:security: WPA2-PSK, phy: bgn, rssi: -59, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (838) wifi:pm start, type: 1[0m
+
+[0;32mI (838) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (848) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1858) esp_netif_handlers: sta ip: 192.168.8.121, mask: 255.255.255.0, gw: 192.168.8.1[0m
+[0;32mI (1858) mqtt_pub: got ip:192.168.8.121[0m
+[0;32mI (1858) mqtt_pub: connected to AP SSID:SLT-4G_597084[0m
+[0;32mI (1858) mqtt_pub: Other event id:7[0m
+[0;33mW (1868) mqtt_pub: MQTT not connected, skip publish[0m
+[0;32mI (1868) main_task: Returned from app_main()[0m
+[0;32mI (1868) wifi:<ba-add>idx:0 (ifx:0, 98:a9:42:59:70:84), tid:0, ssn:4, winSize:64[0m
+[0;32mI (3108) mqtt_pub: MQTT_EVENT_CONNECTED[0m
+[0;32mI (6868) mqtt_pub: published to agri_sense/demo: hello from pub #0 (msg_id=2173)[0m
+[0;32mI (7208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=2173[0m
+[0;32mI (11868) mqtt_pub: published to agri_sense/demo: hello from pub #1 (msg_id=59607)[0m
+[0;32mI (12228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59607[0m
+[0;32mI (16868) mqtt_pub: published to agri_sense/demo: hello from pub #2 (msg_id=647)[0m
+[0;32mI (17138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=647[0m
+[0;32mI (21868) mqtt_pub: published to agri_sense/demo: hello from pub #3 (msg_id=64813)[0m
+[0;32mI (22158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64813[0m
+[0;32mI (26868) mqtt_pub: published to agri_sense/demo: hello from pub #4 (msg_id=18207)[0m
+[0;32mI (27178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18207[0m
+[0;32mI (31868) mqtt_pub: published to agri_sense/demo: hello from pub #5 (msg_id=8000)[0m
+[0;32mI (32188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=8000[0m
+[0;32mI (36868) mqtt_pub: published to agri_sense/demo: hello from pub #6 (msg_id=22278)[0m
+[0;32mI (37208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22278[0m
+[0;32mI (41868) mqtt_pub: published to agri_sense/demo: hello from pub #7 (msg_id=31746)[0m
+[0;32mI (42228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31746[0m
+[0;32mI (46868) mqtt_pub: published to agri_sense/demo: hello from pub #8 (msg_id=64182)[0m
+[0;32mI (47148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64182[0m
+[0;32mI (51868) mqtt_pub: published to agri_sense/demo: hello from pub #9 (msg_id=22938)[0m
+[0;32mI (52158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22938[0m
+[0;32mI (56868) mqtt_pub: published to agri_sense/demo: hello from pub #10 (msg_id=61844)[0m
+[0;32mI (57488) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=61844[0m
+[0;32mI (61868) mqtt_pub: published to agri_sense/demo: hello from pub #11 (msg_id=38598)[0m
+[0;32mI (62198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38598[0m
+[0;32mI (66868) mqtt_pub: published to agri_sense/demo: hello from pub #12 (msg_id=47469)[0m
+[0;32mI (67108) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47469[0m
+[0;32mI (71868) mqtt_pub: published to agri_sense/demo: hello from pub #13 (msg_id=36842)[0m
+[0;32mI (72228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36842[0m
+[0;32mI (76868) mqtt_pub: published to agri_sense/demo: hello from pub #14 (msg_id=36880)[0m
+[0;32mI (77148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36880[0m
+[0;32mI (81868) mqtt_pub: published to agri_sense/demo: hello from pub #15 (msg_id=32202)[0m
+[0;32mI (82378) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32202[0m
+[0;32mI (86868) mqtt_pub: published to agri_sense/demo: hello from pub #16 (msg_id=50851)[0m
+[0;32mI (87488) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50851[0m
+[0;32mI (91868) mqtt_pub: published to agri_sense/demo: hello from pub #17 (msg_id=59590)[0m
+[0;32mI (92198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59590[0m
+[0;32mI (96868) mqtt_pub: published to agri_sense/demo: hello from pub #18 (msg_id=7136)[0m
+[0;32mI (97218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7136[0m
+[0;32mI (99668) wifi:<ba-add>idx:1 (ifx:0, 98:a9:42:59:70:84), tid:6, ssn:0, winSize:64[0m
+[0;32mI (101868) mqtt_pub: published to agri_sense/demo: hello from pub #19 (msg_id=44284)[0m
+[0;32mI (102138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44284[0m
+[0;32mI (106868) mqtt_pub: published to agri_sense/demo: hello from pub #20 (msg_id=57741)[0m
+[0;32mI (107258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57741[0m
+[0;32mI (111868) mqtt_pub: published to agri_sense/demo: hello from pub #21 (msg_id=34838)[0m
+[0;32mI (112178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34838[0m
+[0;32mI (116868) mqtt_pub: published to agri_sense/demo: hello from pub #22 (msg_id=64620)[0m
+[0;32mI (117188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64620[0m
+[0;32mI (121868) mqtt_pub: published to agri_sense/demo: hello from pub #23 (msg_id=20656)[0m
+[0;32mI (122208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=20656[0m
+[0;32mI (126868) mqtt_pub: published to agri_sense/demo: hello from pub #24 (msg_id=19580)[0m
+[0;32mI (127118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=19580[0m
+[0;32mI (131868) mqtt_pub: published to agri_sense/demo: hello from pub #25 (msg_id=31015)[0m
+[0;32mI (132138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31015[0m
+[0;32mI (136868) mqtt_pub: published to agri_sense/demo: hello from pub #26 (msg_id=31649)[0m
+[0;32mI (137158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31649[0m
+[0;32mI (141868) mqtt_pub: published to agri_sense/demo: hello from pub #27 (msg_id=23545)[0m
+[0;32mI (142168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=23545[0m
+[0;32mI (146868) mqtt_pub: published to agri_sense/demo: hello from pub #28 (msg_id=35237)[0m
+[0;32mI (147188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=35237[0m
+[0;32mI (151868) mqtt_pub: published to agri_sense/demo: hello from pub #29 (msg_id=3723)[0m
+[0;32mI (152208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=3723[0m
+[0;32mI (156868) mqtt_pub: published to agri_sense/demo: hello from pub #30 (msg_id=32831)[0m
+[0;32mI (157228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32831[0m
+[0;32mI (161868) mqtt_pub: published to agri_sense/demo: hello from pub #31 (msg_id=25623)[0m
+[0;32mI (162148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=25623[0m
+[0;32mI (166868) mqtt_pub: published to agri_sense/demo: hello from pub #32 (msg_id=19932)[0m
+[0;32mI (167168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=19932[0m
+[0;32mI (171868) mqtt_pub: published to agri_sense/demo: hello from pub #33 (msg_id=13119)[0m
+[0;32mI (172278) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13119[0m
+[0;32mI (176868) mqtt_pub: published to agri_sense/demo: hello from pub #34 (msg_id=18151)[0m
+[0;32mI (177198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18151[0m
+[0;32mI (181868) mqtt_pub: published to agri_sense/demo: hello from pub #35 (msg_id=45035)[0m
+[0;32mI (182208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=45035[0m
+[0;32mI (186868) mqtt_pub: published to agri_sense/demo: hello from pub #36 (msg_id=33172)[0m
+[0;32mI (187128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=33172[0m
+[0;32mI (191868) mqtt_pub: published to agri_sense/demo: hello from pub #37 (msg_id=1936)[0m
+[0;32mI (192148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=1936[0m
+[0;32mI (196868) mqtt_pub: published to agri_sense/demo: hello from pub #38 (msg_id=51006)[0m
+[0;32mI (197158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51006[0m
+[0;32mI (201868) mqtt_pub: published to agri_sense/demo: hello from pub #39 (msg_id=7207)[0m
+[0;32mI (202278) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7207[0m
+[0;32mI (206868) mqtt_pub: published to agri_sense/demo: hello from pub #40 (msg_id=52746)[0m
+[0;32mI (207198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52746[0m
+����������������������������������������������������������������(211868) mqtt_pub: published to agri_sense/demo: hello from pub #41 (msg_id=47446)
+[0;32mI (212218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47446[0m
+[0;32mI (216868) mqtt_pub: published to agri_sense/demo: hello from pub #42 (msg_id=38435)[0m
+[0;32mI (217128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38435[0m
+[0;32mI (221868) mqtt_pub: published to agri_sense/demo: hello from pub #43 (msg_id=6597)[0m
+[0;32mI (222248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=6597[0m
+[0;32mI (226868) mqtt_pub: published to agri_sense/demo: hello from pub #44 (msg_id=57688)[0m
+[0;32mI (227168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57688[0m
+[0;32mI (231868) mqtt_pub: published to agri_sense/demo: hello from pub #45 (msg_id=12260)[0m
+[0;32mI (232188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12260[0m
+[0;32mI (236868) mqtt_pub: published to agri_sense/demo: hello from pub #46 (msg_id=30103)[0m
+[0;32mI (237308) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=30103[0m
+[0;32mI (241868) mqtt_pub: published to agri_sense/demo: hello from pub #47 (msg_id=34460)[0m
+[0;32mI (242218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34460[0m
+[0;32mI (246868) mqtt_pub: published to agri_sense/demo: hello from pub #48 (msg_id=31221)[0m
+[0;32mI (247138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31221[0m
+[0;32mI (251868) mqtt_pub: published to agri_sense/demo: hello from pub #49 (msg_id=25580)[0m
+[0;32mI (252158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=25580[0m
+[0;32mI (256868) mqtt_pub: published to agri_sense/demo: hello from pub #50 (msg_id=38569)[0m
+[0;32mI (257178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38569[0m
+[0;32mI (261868) mqtt_pub: published to agri_sense/demo: hello from pub #51 (msg_id=42841)[0m
+[0;32mI (262198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=42841[0m
+[0;32mI (266868) mqtt_pub: published to agri_sense/demo: hello from pub #52 (msg_id=6067)[0m
+[0;32mI (267208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=6067[0m
+[0;32mI (271868) mqtt_pub: published to agri_sense/demo: hello from pub #53 (msg_id=32287)[0m
+[0;32mI (272118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32287[0m
+[0;32mI (276868) mqtt_pub: published to agri_sense/demo: hello from pub #54 (msg_id=20886)[0m
+[0;32mI (277138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=20886[0m
+[0;32mI (281868) mqtt_pub: published to agri_sense/demo: hello from pub #55 (msg_id=4602)[0m
+[0;32mI (282678) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4602[0m
+[0;32mI (286868) mqtt_pub: published to agri_sense/demo: hello from pub #56 (msg_id=47631)[0m
+[0;32mI (287178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47631[0m
+[0;32mI (291868) mqtt_pub: published to agri_sense/demo: hello from pub #57 (msg_id=21104)[0m
+[0;32mI (292188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=21104[0m
+[0;32mI (296868) mqtt_pub: published to agri_sense/demo: hello from pub #58 (msg_id=32067)[0m
+[0;32mI (297208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32067[0m
+[0;32mI (301868) mqtt_pub: published to agri_sense/demo: hello from pub #59 (msg_id=5403)[0m
+[0;32mI (302128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=5403[0m
+[0;32mI (306868) mqtt_pub: published to agri_sense/demo: hello from pub #60 (msg_id=28909)[0m
+[0;32mI (307148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=28909[0m
+[0;32mI (311868) mqtt_pub: published to agri_sense/demo: hello from pub #61 (msg_id=48387)[0m
+[0;32mI (312158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=48387[0m
+[0;32mI (316868) mqtt_pub: published to agri_sense/demo: hello from pub #62 (msg_id=59256)[0m
+[0;32mI (317178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59256[0m
+[0;32mI (321868) mqtt_pub: published to agri_sense/demo: hello from pub #63 (msg_id=19884)[0m
+[0;32mI (322198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=19884[0m
+[0;32mI (326868) mqtt_pub: published to agri_sense/demo: hello from pub #64 (msg_id=63515)[0m
+[0;32mI (327108) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63515[0m
+[0;32mI (331868) mqtt_pub: published to agri_sense/demo: hello from pub #65 (msg_id=41755)[0m
+[0;32mI (332128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=41755[0m
+[0;32mI (336868) mqtt_pub: published to agri_sense/demo: hello from pub #66 (msg_id=18861)[0m
+[0;32mI (337148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18861[0m
+[0;32mI (341868) mqtt_pub: published to agri_sense/demo: hello from pub #67 (msg_id=7522)[0m
+[0;32mI (342168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7522[0m
+[0;32mI (346868) mqtt_pub: published to agri_sense/demo: hello from pub #68 (msg_id=47104)[0m
+[0;32mI (347178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47104[0m
+[0;32mI (351868) mqtt_pub: published to agri_sense/demo: hello from pub #69 (msg_id=17853)[0m
+[0;32mI (352198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17853[0m
+[0;32mI (356868) mqtt_pub: published to agri_sense/demo: hello from pub #70 (msg_id=44859)[0m
+[0;32mI (357218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44859[0m
+[0;32mI (361868) mqtt_pub: published to agri_sense/demo: hello from pub #71 (msg_id=29458)[0m
+[0;32mI (362238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=29458[0m
+[0;32mI (366868) mqtt_pub: published to agri_sense/demo: hello from pub #72 (msg_id=42915)[0m
+[0;32mI (367148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=42915[0m
+[0;32mI (371868) mqtt_pub: published to agri_sense/demo: hello from pub #73 (msg_id=11003)[0m
+[0;32mI (372168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=11003[0m
+[0;32mI (376868) mqtt_pub: published to agri_sense/demo: hello from pub #74 (msg_id=7975)[0m
+[0;32mI (377188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7975[0m
+[0;32mI (381868) mqtt_pub: published to agri_sense/demo: hello from pub #75 (msg_id=64566)[0m
+[0;32mI (382208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64566[0m
+[0;32mI (386868) mqtt_pub: published to agri_sense/demo: hello from pub #76 (msg_id=16673)[0m
+[0;32mI (387218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=16673[0m
+[0;32mI (391868) mqtt_pub: published to agri_sense/demo: hello from pub #77 (msg_id=39917)[0m
+[0;32mI (392138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=39917[0m
+[0;32mI (396868) mqtt_pub: published to agri_sense/demo: hello from pub #78 (msg_id=60004)[0m
+[0;32mI (397158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60004[0m
+[0;32mI (401868) mqtt_pub: published to agri_sense/demo: hello from pub #79 (msg_id=17475)[0m
+[0;32mI (402168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17475[0m
+[0;32mI (406868) mqtt_pub: published to agri_sense/demo: hello from pub #80 (msg_id=22958)[0m
+[0;32mI (407188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22958[0m
+[0;32mI (411868) mqtt_pub: published to agri_sense/demo: hello from pub #81 (msg_id=32521)[0m
+[0;32mI (412208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32521[0m
+[0;32mI (416868) mqtt_pub: published to agri_sense/demo: hello from pub #82 (msg_id=13360)[0m
+[0;32mI (417228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13360[0m
+[0;32mI (421868) mqtt_pub: published to agri_sense/demo: hello from pub #83 (msg_id=45884)[0m
+[0;32mI (422138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=45884[0m
+[0;32mI (426868) mqtt_pub: published to agri_sense/demo: hello from pub #84 (msg_id=2250)[0m
+[0;32mI (427158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=2250[0m
+[0;32mI (431868) mqtt_pub: published to agri_sense/demo: hello from pub #85 (msg_id=63366)[0m
+[0;32mI (432178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63366[0m
+[0;32mI (436868) mqtt_pub: published to agri_sense/demo: hello from pub #86 (msg_id=28219)[0m
+[0;32mI (437198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=28219[0m
+[0;32mI (441868) mqtt_pub: published to agri_sense/demo: hello from pub #87 (msg_id=40929)[0m
+[0;32mI (442208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40929[0m
+[0;32mI (446868) mqtt_pub: published to agri_sense/demo: hello from pub #88 (msg_id=17111)[0m
+[0;32mI (447128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17111[0m
+[0;32mI (451868) mqtt_pub: published to agri_sense/demo: hello from pub #89 (msg_id=23288)[0m
+[0;32mI (452148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=23288[0m
+[0;32mI (456868) mqtt_pub: published to agri_sense/demo: hello from pub #90 (msg_id=2847)[0m
+[0;32mI (457158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=2847[0m
+[0;32mI (461868) mqtt_pub: published to agri_sense/demo: hello from pub #91 (msg_id=25703)[0m
+[0;32mI (462278) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=25703[0m
+[0;32mI (466868) mqtt_pub: published to agri_sense/demo: hello from pub #92 (msg_id=58578)[0m
+[0;32mI (467208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58578[0m
+[0;32mI (471868) mqtt_pub: published to agri_sense/demo: hello from pub #93 (msg_id=38892)[0m
+[0;32mI (472118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38892[0m
+[0;32mI (476868) mqtt_pub: published to agri_sense/demo: hello from pub #94 (msg_id=1009)[0m
+[0;32mI (477128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=1009[0m
+[0;32mI (481868) mqtt_pub: published to agri_sense/demo: hello from pub #95 (msg_id=57243)[0m
+[0;32mI (482148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57243[0m
+[0;32mI (486868) mqtt_pub: published to agri_sense/demo: hello from pub #96 (msg_id=23344)[0m
+[0;32mI (487168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=23344[0m
+[0;32mI (491868) mqtt_pub: published to agri_sense/demo: hello from pub #97 (msg_id=11788)[0m
+[0;32mI (492188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=11788[0m
+[0;32mI (496868) mqtt_pub: published to agri_sense/demo: hello from pub #98 (msg_id=43143)[0m
+[0;32mI (497198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=43143[0m
+[0;32mI (501868) mqtt_pub: published to agri_sense/demo: hello from pub #99 (msg_id=54523)[0m
+[0;32mI (502118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=54523[0m
+[0;32mI (506868) mqtt_pub: published to agri_sense/demo: hello from pub #100 (msg_id=51138)[0m
+[0;32mI (507138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51138[0m
+[0;32mI (511868) mqtt_pub: published to agri_sense/demo: hello from pub #101 (msg_id=9976)[0m
+[0;32mI (512148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9976[0m
+[0;32mI (516868) mqtt_pub: published to agri_sense/demo: hello from pub #102 (msg_id=13168)[0m
+[0;32mI (517278) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13168[0m
+[0;32mI (521868) mqtt_pub: published to agri_sense/demo: hello from pub #103 (msg_id=45613)[0m
+[0;32mI (522188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=45613[0m
+[0;32mI (526868) mqtt_pub: published to agri_sense/demo: hello from pub #104 (msg_id=10397)[0m
+[0;32mI (527208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=10397[0m
+[0;32mI (531868) mqtt_pub: published to agri_sense/demo: hello from pub #105 (msg_id=11962)[0m
+[0;32mI (532228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=11962[0m
+[0;32mI (536868) mqtt_pub: published to agri_sense/demo: hello from pub #106 (msg_id=58883)[0m
+[0;32mI (537138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58883[0m
+[0;32mI (541868) mqtt_pub: published to agri_sense/demo: hello from pub #107 (msg_id=12908)[0m
+[0;32mI (542158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12908[0m
+[0;32mI (546868) mqtt_pub: published to agri_sense/demo: hello from pub #108 (msg_id=21940)[0m
+[0;32mI (547178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=21940[0m
+[0;32mI (551868) mqtt_pub: published to agri_sense/demo: hello from pub #109 (msg_id=38165)[0m
+[0;32mI (552188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38165[0m
+[0;32mI (556868) mqtt_pub: published to agri_sense/demo: hello from pub #110 (msg_id=50673)[0m
+[0;32mI (557208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50673[0m
+[0;32mI (561868) mqtt_pub: published to agri_sense/demo: hello from pub #111 (msg_id=18040)[0m
+[0;32mI (562338) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18040[0m
+[0;32mI (566868) mqtt_pub: published to agri_sense/demo: hello from pub #112 (msg_id=27624)[0m
+[0;32mI (567148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=27624[0m
+[0;32mI (571868) mqtt_pub: published to agri_sense/demo: hello from pub #113 (msg_id=48499)[0m
+[0;32mI (572158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=48499[0m
+[0;32mI (576868) mqtt_pub: published to agri_sense/demo: hello from pub #114 (msg_id=64635)[0m
+[0;32mI (577178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64635[0m
+[0;32mI (581868) mqtt_pub: published to agri_sense/demo: hello from pub #115 (msg_id=60657)[0m
+[0;32mI (582118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60657[0m
+[0;32mI (586868) mqtt_pub: published to agri_sense/demo: hello from pub #116 (msg_id=51913)[0m
+[0;32mI (587218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51913[0m
+[0;32mI (591868) mqtt_pub: published to agri_sense/demo: hello from pub #117 (msg_id=304)[0m
+[0;32mI (592128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=304[0m
+[0;32mI (596868) mqtt_pub: published to agri_sense/demo: hello from pub #118 (msg_id=30813)[0m
+[0;32mI (597248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=30813[0m
+[0;32mI (601868) mqtt_pub: published to agri_sense/demo: hello from pub #119 (msg_id=11482)[0m
+[0;32mI (602168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=11482[0m
+[0;32mI (606868) mqtt_pub: published to agri_sense/demo: hello from pub #120 (msg_id=42826)[0m
+[0;32mI (607288) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=42826[0m
+[0;32mI (611868) mqtt_pub: published to agri_sense/demo: hello from pub #121 (msg_id=26512)[0m
+[0;32mI (612198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=26512[0m
+[0;32mI (616868) mqtt_pub: published to agri_sense/demo: hello from pub #122 (msg_id=26262)[0m
+[0;32mI (617218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=26262[0m
+[0;32mI (621868) mqtt_pub: published to agri_sense/demo: hello from pub #123 (msg_id=56920)[0m
+[0;32mI (622238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=56920[0m
+[0;32mI (626868) mqtt_pub: published to agri_sense/demo: hello from pub #124 (msg_id=31897)[0m
+[0;32mI (627148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31897[0m
+[0;32mI (631868) mqtt_pub: published to agri_sense/demo: hello from pub #125 (msg_id=484)[0m
+[0;32mI (632168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=484[0m
+[0;32mI (636868) mqtt_pub: published to agri_sense/demo: hello from pub #126 (msg_id=9530)[0m
+[0;32mI (637188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9530[0m
+[0;32mI (641868) mqtt_pub: published to agri_sense/demo: hello from pub #127 (msg_id=23426)[0m
+[0;32mI (642208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=23426[0m
+[0;32mI (646868) mqtt_pub: published to agri_sense/demo: hello from pub #128 (msg_id=31922)[0m
+[0;32mI (647128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31922[0m
+[0;32mI (651868) mqtt_pub: published to agri_sense/demo: hello from pub #129 (msg_id=37555)[0m
+[0;32mI (652138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37555[0m
+[0;32mI (656868) mqtt_pub: published to agri_sense/demo: hello from pub #130 (msg_id=51250)[0m
+[0;32mI (657158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51250[0m
+[0;32mI (661868) mqtt_pub: published to agri_sense/demo: hello from pub #131 (msg_id=59734)[0m
+[0;32mI (662178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59734[0m
+[0;32mI (666868) mqtt_pub: published to agri_sense/demo: hello from pub #132 (msg_id=50972)[0m
+[0;32mI (667198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50972[0m
+[0;32mI (671868) mqtt_pub: published to agri_sense/demo: hello from pub #133 (msg_id=52590)[0m
+[0;32mI (672208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52590[0m
+[0;32mI (676868) mqtt_pub: published to agri_sense/demo: hello from pub #134 (msg_id=51040)[0m
+[0;32mI (677228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51040[0m
+[0;32mI (681868) mqtt_pub: published to agri_sense/demo: hello from pub #135 (msg_id=14419)[0m
+[0;32mI (682148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14419[0m
+[0;32mI (686868) mqtt_pub: published to agri_sense/demo: hello from pub #136 (msg_id=18659)[0m
+[0;32mI (687158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18659[0m
+[0;32mI (691868) mqtt_pub: published to agri_sense/demo: hello from pub #137 (msg_id=36322)[0m
+[0;32mI (692178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36322[0m
+[0;32mI (696868) mqtt_pub: published to agri_sense/demo: hello from pub #138 (msg_id=10464)[0m
+[0;32mI (697198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=10464[0m
+[0;32mI (701868) mqtt_pub: published to agri_sense/demo: hello from pub #139 (msg_id=2471)[0m
+[0;32mI (702208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=2471[0m
+[0;32mI (706868) mqtt_pub: published to agri_sense/demo: hello from pub #140 (msg_id=61020)[0m
+[0;32mI (707128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=61020[0m
+[0;32mI (711868) mqtt_pub: published to agri_sense/demo: hello from pub #141 (msg_id=57108)[0m
+[0;32mI (712148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57108[0m
+[0;32mI (716868) mqtt_pub: published to agri_sense/demo: hello from pub #142 (msg_id=17056)[0m
+[0;32mI (717168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17056[0m
+[0;32mI (721868) mqtt_pub: published to agri_sense/demo: hello from pub #143 (msg_id=41092)[0m
+[0;32mI (722178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=41092[0m
+[0;32mI (726868) mqtt_pub: published to agri_sense/demo: hello from pub #144 (msg_id=48577)[0m
+[0;32mI (727308) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=48577[0m
+[0;32mI (731868) mqtt_pub: published to agri_sense/demo: hello from pub #145 (msg_id=12836)[0m
+[0;32mI (732218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12836[0m
+[0;32mI (736868) mqtt_pub: published to agri_sense/demo: hello from pub #146 (msg_id=44883)[0m
+[0;32mI (737238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44883[0m
+[0;32mI (741868) mqtt_pub: published to agri_sense/demo: hello from pub #147 (msg_id=4973)[0m
+[0;32mI (742148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4973[0m
+[0;32mI (746868) mqtt_pub: published to agri_sense/demo: hello from pub #148 (msg_id=34308)[0m
+[0;32mI (747168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34308[0m
+[0;32mI (751868) mqtt_pub: published to agri_sense/demo: hello from pub #149 (msg_id=9670)[0m
+[0;32mI (752188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9670[0m
+[0;32mI (756868) mqtt_pub: published to agri_sense/demo: hello from pub #150 (msg_id=47017)[0m
+[0;32mI (757198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47017[0m
+���������������������������������������������������������������� (761868) mqtt_pub: published to agri_sense/demo: hello from pub #151 (msg_id=64039)
+[0;32mI (762218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64039[0m
+[0;32mI (766868) mqtt_pub: published to agri_sense/demo: hello from pub #152 (msg_id=34753)[0m
+[0;32mI (767238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34753[0m
+[0;32mI (771868) mqtt_pub: published to agri_sense/demo: hello from pub #153 (msg_id=37073)[0m
+[0;32mI (772158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37073[0m
+[0;32mI (776868) mqtt_pub: published to agri_sense/demo: hello from pub #154 (msg_id=7838)[0m
+[0;32mI (777168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7838[0m
+[0;32mI (781868) mqtt_pub: published to agri_sense/demo: hello from pub #155 (msg_id=12278)[0m
+[0;32mI (782188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12278[0m
+[0;32mI (786868) mqtt_pub: published to agri_sense/demo: hello from pub #156 (msg_id=39352)[0m
+[0;32mI (787208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=39352[0m
+[0;32mI (791868) mqtt_pub: published to agri_sense/demo: hello from pub #157 (msg_id=37206)[0m
+[0;32mI (792228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37206[0m
+[0;32mI (796868) mqtt_pub: published to agri_sense/demo: hello from pub #158 (msg_id=12742)[0m
+[0;32mI (797138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12742[0m
+[0;32mI (801868) mqtt_pub: published to agri_sense/demo: hello from pub #159 (msg_id=54604)[0m
+[0;32mI (802158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=54604[0m
+[0;32mI (806868) mqtt_pub: published to agri_sense/demo: hello from pub #160 (msg_id=40721)[0m
+[0;32mI (807178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40721[0m
+[0;32mI (811868) mqtt_pub: published to agri_sense/demo: hello from pub #161 (msg_id=52649)[0m
+[0;32mI (812188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52649[0m
+[0;32mI (816868) mqtt_pub: published to agri_sense/demo: hello from pub #162 (msg_id=54793)[0m
+[0;32mI (817308) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=54793[0m
+[0;32mI (821868) mqtt_pub: published to agri_sense/demo: hello from pub #163 (msg_id=57111)[0m
+[0;32mI (822128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57111[0m
+[0;32mI (826868) mqtt_pub: published to agri_sense/demo: hello from pub #164 (msg_id=17597)[0m
+[0;32mI (827148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17597[0m
+[0;32mI (831868) mqtt_pub: published to agri_sense/demo: hello from pub #165 (msg_id=38348)[0m
+[0;32mI (832168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38348[0m
+[0;32mI (836868) mqtt_pub: published to agri_sense/demo: hello from pub #166 (msg_id=46578)[0m
+[0;32mI (837178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=46578[0m
+[0;32mI (841868) mqtt_pub: published to agri_sense/demo: hello from pub #167 (msg_id=63020)[0m
+[0;32mI (842198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63020[0m
+[0;32mI (846868) mqtt_pub: published to agri_sense/demo: hello from pub #168 (msg_id=49193)[0m
+[0;32mI (847218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=49193[0m
+[0;32mI (851868) mqtt_pub: published to agri_sense/demo: hello from pub #169 (msg_id=12728)[0m
+[0;32mI (852128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12728[0m
+[0;32mI (856868) mqtt_pub: published to agri_sense/demo: hello from pub #170 (msg_id=42898)[0m
+[0;32mI (857148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=42898[0m
+[0;32mI (861868) mqtt_pub: published to agri_sense/demo: hello from pub #171 (msg_id=11518)[0m
+[0;32mI (862168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=11518[0m
+[0;32mI (866868) mqtt_pub: published to agri_sense/demo: hello from pub #172 (msg_id=65290)[0m
+[0;32mI (867178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=65290[0m
+[0;32mI (871868) mqtt_pub: published to agri_sense/demo: hello from pub #173 (msg_id=62109)[0m
+[0;32mI (872198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=62109[0m
+[0;32mI (876868) mqtt_pub: published to agri_sense/demo: hello from pub #174 (msg_id=31289)[0m
+[0;32mI (877218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31289[0m
+[0;32mI (881868) mqtt_pub: published to agri_sense/demo: hello from pub #175 (msg_id=24419)[0m
+[0;32mI (882238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=24419[0m
+[0;32mI (886868) mqtt_pub: published to agri_sense/demo: hello from pub #176 (msg_id=40084)[0m
+[0;32mI (887258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40084[0m
+[0;32mI (891868) mqtt_pub: published to agri_sense/demo: hello from pub #177 (msg_id=44594)[0m
+[0;32mI (892168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44594[0m
+[0;32mI (896868) mqtt_pub: published to agri_sense/demo: hello from pub #178 (msg_id=64571)[0m
+[0;32mI (897498) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64571[0m
+[0;32mI (901868) mqtt_pub: published to agri_sense/demo: hello from pub #179 (msg_id=21412)[0m
+[0;32mI (902208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=21412[0m
+[0;32mI (906868) mqtt_pub: published to agri_sense/demo: hello from pub #180 (msg_id=43374)[0m
+[0;32mI (907218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=43374[0m
+[0;32mI (911868) mqtt_pub: published to agri_sense/demo: hello from pub #181 (msg_id=63043)[0m
+[0;32mI (912138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63043[0m
+[0;32mI (916868) mqtt_pub: published to agri_sense/demo: hello from pub #182 (msg_id=14646)[0m
+[0;32mI (917258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14646[0m
+[0;32mI (921868) mqtt_pub: published to agri_sense/demo: hello from pub #183 (msg_id=9240)[0m
+[0;32mI (922168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9240[0m
+[0;32mI (926868) mqtt_pub: published to agri_sense/demo: hello from pub #184 (msg_id=64961)[0m
+[0;32mI (927188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64961[0m
+[0;32mI (931868) mqtt_pub: published to agri_sense/demo: hello from pub #185 (msg_id=47177)[0m
+[0;32mI (932208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47177[0m
+[0;32mI (936868) mqtt_pub: published to agri_sense/demo: hello from pub #186 (msg_id=24183)[0m
+[0;32mI (937128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=24183[0m
+[0;32mI (941868) mqtt_pub: published to agri_sense/demo: hello from pub #187 (msg_id=44510)[0m
+[0;32mI (942138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44510[0m
+[0;32mI (946868) mqtt_pub: published to agri_sense/demo: hello from pub #188 (msg_id=33430)[0m
+[0;32mI (947158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=33430[0m
+[0;32mI (951868) mqtt_pub: published to agri_sense/demo: hello from pub #189 (msg_id=7325)[0m
+[0;32mI (952178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7325[0m
+[0;32mI (956868) mqtt_pub: published to agri_sense/demo: hello from pub #190 (msg_id=9559)[0m
+[0;32mI (957198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9559[0m
+[0;32mI (961868) mqtt_pub: published to agri_sense/demo: hello from pub #191 (msg_id=31437)[0m
+[0;32mI (962218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31437[0m
+[0;32mI (966868) mqtt_pub: published to agri_sense/demo: hello from pub #192 (msg_id=38431)[0m
+[0;32mI (967128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38431[0m
+[0;32mI (971868) mqtt_pub: published to agri_sense/demo: hello from pub #193 (msg_id=57526)[0m
+[0;32mI (972248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57526[0m
+[0;32mI (976868) mqtt_pub: published to agri_sense/demo: hello from pub #194 (msg_id=61497)[0m
+[0;32mI (977158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=61497[0m
+[0;32mI (981868) mqtt_pub: published to agri_sense/demo: hello from pub #195 (msg_id=37930)[0m
+[0;32mI (982178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37930[0m
+[0;32mI (986868) mqtt_pub: published to agri_sense/demo: hello from pub #196 (msg_id=5776)[0m
+[0;32mI (987198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=5776[0m
+[0;32mI (991868) mqtt_pub: published to agri_sense/demo: hello from pub #197 (msg_id=57614)[0m
+[0;32mI (992218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57614[0m
+[0;32mI (996868) mqtt_pub: published to agri_sense/demo: hello from pub #198 (msg_id=60737)[0m
+[0;32mI (997338) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60737[0m
+[0;32mI (1001868) mqtt_pub: published to agri_sense/demo: hello from pub #199 (msg_id=15381)[0m
+[0;32mI (1002148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=15381[0m
+[0;32mI (1006868) mqtt_pub: published to agri_sense/demo: hello from pub #200 (msg_id=27480)[0m
+[0;32mI (1007678) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=27480[0m
+[0;32mI (1011868) mqtt_pub: published to agri_sense/demo: hello from pub #201 (msg_id=21161)[0m
+[0;32mI (1012288) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=21161[0m
+[0;32mI (1016868) mqtt_pub: published to agri_sense/demo: hello from pub #202 (msg_id=16201)[0m
+[0;32mI (1017208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=16201[0m
+[0;32mI (1021868) mqtt_pub: published to agri_sense/demo: hello from pub #203 (msg_id=40589)[0m
+[0;32mI (1022218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40589[0m
+[0;32mI (1026868) mqtt_pub: published to agri_sense/demo: hello from pub #204 (msg_id=15443)[0m
+[0;32mI (1027138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=15443[0m
+[0;32mI (1031868) mqtt_pub: published to agri_sense/demo: hello from pub #205 (msg_id=52487)[0m
+[0;32mI (1032158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52487[0m
+[0;32mI (1036868) mqtt_pub: published to agri_sense/demo: hello from pub #206 (msg_id=45649)[0m
+[0;32mI (1037168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=45649[0m
+[0;32mI (1041868) mqtt_pub: published to agri_sense/demo: hello from pub #207 (msg_id=4975)[0m
+[0;32mI (1042188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4975[0m
+[0;32mI (1046868) mqtt_pub: published to agri_sense/demo: hello from pub #208 (msg_id=13545)[0m
+[0;32mI (1047208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13545[0m
+[0;32mI (1051868) mqtt_pub: published to agri_sense/demo: hello from pub #209 (msg_id=57961)[0m
+[0;32mI (1052228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57961[0m
+[0;32mI (1056868) mqtt_pub: published to agri_sense/demo: hello from pub #210 (msg_id=36716)[0m
+[0;32mI (1057138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36716[0m
+[0;32mI (1061868) mqtt_pub: published to agri_sense/demo: hello from pub #211 (msg_id=37622)[0m
+[0;32mI (1062468) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37622[0m
+[0;32mI (1066868) mqtt_pub: published to agri_sense/demo: hello from pub #212 (msg_id=47576)[0m
+[0;32mI (1067178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47576[0m
+[0;32mI (1071868) mqtt_pub: published to agri_sense/demo: hello from pub #213 (msg_id=47806)[0m
+[0;32mI (1072198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47806[0m
+[0;32mI (1076868) mqtt_pub: published to agri_sense/demo: hello from pub #214 (msg_id=5229)[0m
+[0;32mI (1077218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=5229[0m
+[0;32mI (1081868) mqtt_pub: published to agri_sense/demo: hello from pub #215 (msg_id=50064)[0m
+[0;32mI (1082228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50064[0m
+[0;32mI (1086868) mqtt_pub: published to agri_sense/demo: hello from pub #216 (msg_id=45053)[0m
+[0;32mI (1087148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=45053[0m
+[0;32mI (1091868) mqtt_pub: published to agri_sense/demo: hello from pub #217 (msg_id=9393)[0m
+[0;32mI (1092158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9393[0m
+[0;32mI (1096868) mqtt_pub: published to agri_sense/demo: hello from pub #218 (msg_id=36127)[0m
+[0;32mI (1097178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36127[0m
+[0;32mI (1101868) mqtt_pub: published to agri_sense/demo: hello from pub #219 (msg_id=58166)[0m
+[0;32mI (1102198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58166[0m
+[0;32mI (1106868) mqtt_pub: published to agri_sense/demo: hello from pub #220 (msg_id=167)[0m
+[0;32mI (1107218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=167[0m
+[0;32mI (1111868) mqtt_pub: published to agri_sense/demo: hello from pub #221 (msg_id=30503)[0m
+[0;32mI (1112128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=30503[0m
+���������������������������������������������������������������� (1116868) mqtt_pub: published to agri_sense/demo: hello from pub #222 (msg_id=62233)
+[0;32mI (1117248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=62233[0m
+[0;32mI (1121868) mqtt_pub: published to agri_sense/demo: hello from pub #223 (msg_id=34149)[0m
+[0;32mI (1122168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34149[0m
+[0;32mI (1126868) mqtt_pub: published to agri_sense/demo: hello from pub #224 (msg_id=55100)[0m
+[0;32mI (1127178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=55100[0m
+[0;32mI (1131868) mqtt_pub: published to agri_sense/demo: hello from pub #225 (msg_id=41628)[0m
+[0;32mI (1132198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=41628[0m
+[0;32mI (1136868) mqtt_pub: published to agri_sense/demo: hello from pub #226 (msg_id=9393)[0m
+[0;32mI (1137218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9393[0m
+[0;32mI (1141868) mqtt_pub: published to agri_sense/demo: hello from pub #227 (msg_id=44593)[0m
+[0;32mI (1142128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44593[0m
+[0;32mI (1146868) mqtt_pub: published to agri_sense/demo: hello from pub #228 (msg_id=4760)[0m
+[0;32mI (1147148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4760[0m
+[0;32mI (1151868) mqtt_pub: published to agri_sense/demo: hello from pub #229 (msg_id=63503)[0m
+[0;32mI (1152168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63503[0m
+[0;32mI (1156868) mqtt_pub: published to agri_sense/demo: hello from pub #230 (msg_id=50453)[0m
+[0;32mI (1157188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50453[0m
+[0;32mI (1161868) mqtt_pub: published to agri_sense/demo: hello from pub #231 (msg_id=36909)[0m
+[0;32mI (1162208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36909[0m
+[0;32mI (1166868) mqtt_pub: published to agri_sense/demo: hello from pub #232 (msg_id=57561)[0m
+[0;32mI (1167218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=57561[0m
+[0;32mI (1171868) mqtt_pub: published to agri_sense/demo: hello from pub #233 (msg_id=17407)[0m
+[0;32mI (1172238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17407[0m
+[0;32mI (1176868) mqtt_pub: published to agri_sense/demo: hello from pub #234 (msg_id=14147)[0m
+[0;32mI (1177158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14147[0m
+[0;32mI (1181868) mqtt_pub: published to agri_sense/demo: hello from pub #235 (msg_id=55061)[0m
+[0;32mI (1182168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=55061[0m
+[0;32mI (1186868) mqtt_pub: published to agri_sense/demo: hello from pub #236 (msg_id=16740)[0m
+[0;32mI (1187298) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=16740[0m
+[0;32mI (1191868) mqtt_pub: published to agri_sense/demo: hello from pub #237 (msg_id=36112)[0m
+[0;32mI (1192208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=36112[0m
+[0;32mI (1196868) mqtt_pub: published to agri_sense/demo: hello from pub #238 (msg_id=30539)[0m
+[0;32mI (1197128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=30539[0m
+[0;32mI (1201868) mqtt_pub: published to agri_sense/demo: hello from pub #239 (msg_id=30209)[0m
+[0;32mI (1202248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=30209[0m
+����������������������������������������������������������������206868) mqtt_pub: published to agri_sense/demo: hello from pub #240 (msg_id=14442)
+[0;32mI (1207268) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14442[0m
+[0;32mI (1211868) mqtt_pub: published to agri_sense/demo: hello from pub #241 (msg_id=49536)[0m
+[0;32mI (1212178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=49536[0m
+[0;32mI (1216868) mqtt_pub: published to agri_sense/demo: hello from pub #242 (msg_id=4627)[0m
+[0;32mI (1217198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4627[0m
+[0;32mI (1221868) mqtt_pub: published to agri_sense/demo: hello from pub #243 (msg_id=12716)[0m
+[0;32mI (1222208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12716[0m
+[0;32mI (1226868) mqtt_pub: published to agri_sense/demo: hello from pub #244 (msg_id=48231)[0m
+[0;32mI (1227128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=48231[0m
+[0;32mI (1231868) mqtt_pub: published to agri_sense/demo: hello from pub #245 (msg_id=6598)[0m
+[0;32mI (1232148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=6598[0m
+[0;32mI (1236868) mqtt_pub: published to agri_sense/demo: hello from pub #246 (msg_id=25161)[0m
+[0;32mI (1237168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=25161[0m
+[0;32mI (1241868) mqtt_pub: published to agri_sense/demo: hello from pub #247 (msg_id=47971)[0m
+[0;32mI (1242178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47971[0m
+[0;32mI (1246868) mqtt_pub: published to agri_sense/demo: hello from pub #248 (msg_id=39569)[0m
+[0;32mI (1247198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=39569[0m
+[0;32mI (1251868) mqtt_pub: published to agri_sense/demo: hello from pub #249 (msg_id=17905)[0m
+[0;32mI (1252218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17905[0m
+[0;32mI (1256868) mqtt_pub: published to agri_sense/demo: hello from pub #250 (msg_id=44261)[0m
+[0;32mI (1257128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44261[0m
+[0;32mI (1261868) mqtt_pub: published to agri_sense/demo: hello from pub #251 (msg_id=58812)[0m
+[0;32mI (1262248) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58812[0m
+[0;32mI (1266868) mqtt_pub: published to agri_sense/demo: hello from pub #252 (msg_id=15269)[0m
+[0;32mI (1267168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=15269[0m
+[0;32mI (1271868) mqtt_pub: published to agri_sense/demo: hello from pub #253 (msg_id=38741)[0m
+[0;32mI (1272188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38741[0m
+[0;32mI (1276868) mqtt_pub: published to agri_sense/demo: hello from pub #254 (msg_id=59765)[0m
+[0;32mI (1277208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59765[0m
+[0;32mI (1281868) mqtt_pub: published to agri_sense/demo: hello from pub #255 (msg_id=28461)[0m
+[0;32mI (1282218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=28461[0m
+[0;32mI (1286868) mqtt_pub: published to agri_sense/demo: hello from pub #256 (msg_id=64039)[0m
+[0;32mI (1287138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64039[0m
+[0;32mI (1291868) mqtt_pub: published to agri_sense/demo: hello from pub #257 (msg_id=33796)[0m
+[0;32mI (1292258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=33796[0m
+[0;32mI (1296868) mqtt_pub: published to agri_sense/demo: hello from pub #258 (msg_id=29697)[0m
+[0;32mI (1297178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=29697[0m
+[0;32mI (1301868) mqtt_pub: published to agri_sense/demo: hello from pub #259 (msg_id=35933)[0m
+[0;32mI (1302188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=35933[0m
+[0;32mI (1306868) mqtt_pub: published to agri_sense/demo: hello from pub #260 (msg_id=34797)[0m
+[0;32mI (1307208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=34797[0m
+[0;32mI (1311868) mqtt_pub: published to agri_sense/demo: hello from pub #261 (msg_id=3946)[0m
+[0;32mI (1312118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=3946[0m
+[0;32mI (1316868) mqtt_pub: published to agri_sense/demo: hello from pub #262 (msg_id=52151)[0m
+[0;32mI (1317138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52151[0m
+[0;32mI (1321868) mqtt_pub: published to agri_sense/demo: hello from pub #263 (msg_id=4924)[0m
+[0;32mI (1322158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4924[0m
+[0;32mI (1326868) mqtt_pub: published to agri_sense/demo: hello from pub #264 (msg_id=17889)[0m
+[0;32mI (1327178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17889[0m
+[0;32mI (1331868) mqtt_pub: published to agri_sense/demo: hello from pub #265 (msg_id=17266)[0m
+[0;32mI (1332188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17266[0m
+[0;32mI (1336868) mqtt_pub: published to agri_sense/demo: hello from pub #266 (msg_id=7716)[0m
+[0;32mI (1337208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=7716[0m
+[0;32mI (1341868) mqtt_pub: published to agri_sense/demo: hello from pub #267 (msg_id=46437)[0m
+[0;32mI (1342128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=46437[0m
+[0;32mI (1346868) mqtt_pub: published to agri_sense/demo: hello from pub #268 (msg_id=40881)[0m
+[0;32mI (1347148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40881[0m
+[0;32mI (1351868) mqtt_pub: published to agri_sense/demo: hello from pub #269 (msg_id=35428)[0m
+[0;32mI (1352158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=35428[0m
+[0;32mI (1356868) mqtt_pub: published to agri_sense/demo: hello from pub #270 (msg_id=391)[0m
+[0;32mI (1357178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=391[0m
+[0;32mI (1361868) mqtt_pub: published to agri_sense/demo: hello from pub #271 (msg_id=37000)[0m
+[0;32mI (1362198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37000[0m
+[0;32mI (1366868) mqtt_pub: published to agri_sense/demo: hello from pub #272 (msg_id=50370)[0m
+[0;32mI (1367218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50370[0m
+[0;32mI (1371868) mqtt_pub: published to agri_sense/demo: hello from pub #273 (msg_id=15757)[0m
+[0;32mI (1372238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=15757[0m
+[0;32mI (1376868) mqtt_pub: published to agri_sense/demo: hello from pub #274 (msg_id=1205)[0m
+[0;32mI (1377148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=1205[0m
+[0;32mI (1381868) mqtt_pub: published to agri_sense/demo: hello from pub #275 (msg_id=22012)[0m
+[0;32mI (1382168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22012[0m
+[0;32mI (1386868) mqtt_pub: published to agri_sense/demo: hello from pub #276 (msg_id=38933)[0m
+[0;32mI (1387178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38933[0m
+[0;32mI (1391868) mqtt_pub: published to agri_sense/demo: hello from pub #277 (msg_id=51307)[0m
+[0;32mI (1392198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51307[0m
+[0;32mI (1396868) mqtt_pub: published to agri_sense/demo: hello from pub #278 (msg_id=53847)[0m
+[0;32mI (1397118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=53847[0m
+[0;32mI (1401868) mqtt_pub: published to agri_sense/demo: hello from pub #279 (msg_id=59141)[0m
+[0;32mI (1402138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59141[0m
+[0;32mI (1406868) mqtt_pub: published to agri_sense/demo: hello from pub #280 (msg_id=49666)[0m
+[0;32mI (1407258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=49666[0m
+[0;32mI (1411868) mqtt_pub: published to agri_sense/demo: hello from pub #281 (msg_id=64478)[0m
+[0;32mI (1412208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64478[0m
+[0;32mI (1416868) mqtt_pub: published to agri_sense/demo: hello from pub #282 (msg_id=60146)[0m
+[0;32mI (1417188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60146[0m
+[0;32mI (1421868) mqtt_pub: published to agri_sense/demo: hello from pub #283 (msg_id=35962)[0m
+[0;32mI (1422208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=35962[0m
+[0;32mI (1426868) mqtt_pub: published to agri_sense/demo: hello from pub #284 (msg_id=63572)[0m
+[0;32mI (1427228) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63572[0m
+[0;32mI (1431868) mqtt_pub: published to agri_sense/demo: hello from pub #285 (msg_id=10200)[0m
+[0;32mI (1432238) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=10200[0m
+[0;32mI (1436868) mqtt_pub: published to agri_sense/demo: hello from pub #286 (msg_id=47593)[0m
+[0;32mI (1437158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47593[0m
+[0;32mI (1441868) mqtt_pub: published to agri_sense/demo: hello from pub #287 (msg_id=20566)[0m
+[0;32mI (1442178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=20566[0m
+[0;32mI (1446868) mqtt_pub: published to agri_sense/demo: hello from pub #288 (msg_id=14899)[0m
+[0;32mI (1447188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14899[0m
+[0;32mI (1451868) mqtt_pub: published to agri_sense/demo: hello from pub #289 (msg_id=38764)[0m
+[0;32mI (1452208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38764[0m
+[0;32mI (1456868) mqtt_pub: published to agri_sense/demo: hello from pub #290 (msg_id=18862)[0m
+[0;32mI (1457118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18862[0m
+[0;32mI (1461868) mqtt_pub: published to agri_sense/demo: hello from pub #291 (msg_id=49152)[0m
+[0;32mI (1462138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=49152[0m
+[0;32mI (1466868) mqtt_pub: published to agri_sense/demo: hello from pub #292 (msg_id=16328)[0m
+[0;32mI (1467158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=16328[0m
+[0;32mI (1471868) mqtt_pub: published to agri_sense/demo: hello from pub #293 (msg_id=8554)[0m
+[0;32mI (1472178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=8554[0m
+[0;32mI (1476868) mqtt_pub: published to agri_sense/demo: hello from pub #294 (msg_id=50754)[0m
+[0;32mI (1477198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=50754[0m
+[0;32mI (1481868) mqtt_pub: published to agri_sense/demo: hello from pub #295 (msg_id=58182)[0m
+[0;32mI (1482208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58182[0m
+[0;32mI (1486868) mqtt_pub: published to agri_sense/demo: hello from pub #296 (msg_id=13966)[0m
+[0;32mI (1487128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13966[0m
+[0;32mI (1491868) mqtt_pub: published to agri_sense/demo: hello from pub #297 (msg_id=9560)[0m
+[0;32mI (1492148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9560[0m
+[0;32mI (1496868) mqtt_pub: published to agri_sense/demo: hello from pub #298 (msg_id=47378)[0m
+[0;32mI (1497158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=47378[0m
+[0;32mI (1501868) mqtt_pub: published to agri_sense/demo: hello from pub #299 (msg_id=4145)[0m
+[0;32mI (1502178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=4145[0m
+[0;32mI (1506868) mqtt_pub: published to agri_sense/demo: hello from pub #300 (msg_id=39909)[0m
+[0;32mI (1507198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=39909[0m
+[0;32mI (1511868) mqtt_pub: published to agri_sense/demo: hello from pub #301 (msg_id=16811)[0m
+[0;32mI (1512218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=16811[0m
+[0;32mI (1516868) mqtt_pub: published to agri_sense/demo: hello from pub #302 (msg_id=29231)[0m
+[0;32mI (1517138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=29231[0m
+[0;32mI (1521868) mqtt_pub: published to agri_sense/demo: hello from pub #303 (msg_id=43573)[0m
+[0;32mI (1522148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=43573[0m
+[0;32mI (1526868) mqtt_pub: published to agri_sense/demo: hello from pub #304 (msg_id=31744)[0m
+[0;32mI (1527168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31744[0m
+[0;32mI (1531868) mqtt_pub: published to agri_sense/demo: hello from pub #305 (msg_id=12873)[0m
+[0;32mI (1532188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12873[0m
+[0;32mI (1536868) mqtt_pub: published to agri_sense/demo: hello from pub #306 (msg_id=22843)[0m
+[0;32mI (1537208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22843[0m
+[0;32mI (1541868) mqtt_pub: published to agri_sense/demo: hello from pub #307 (msg_id=18035)[0m
+[0;32mI (1542218) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18035[0m
+[0;32mI (1546868) mqtt_pub: published to agri_sense/demo: hello from pub #308 (msg_id=64616)[0m
+[0;32mI (1547138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=64616[0m
+[0;32mI (1551868) mqtt_pub: published to agri_sense/demo: hello from pub #309 (msg_id=40880)[0m
+[0;32mI (1552158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40880[0m
+[0;32mI (1556868) mqtt_pub: published to agri_sense/demo: hello from pub #310 (msg_id=60983)[0m
+[0;32mI (1557168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60983[0m
+[0;32mI (1561868) mqtt_pub: published to agri_sense/demo: hello from pub #311 (msg_id=44270)[0m
+[0;32mI (1562188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44270[0m
+[0;32mI (1566868) mqtt_pub: published to agri_sense/demo: hello from pub #312 (msg_id=63377)[0m
+[0;32mI (1567208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=63377[0m
+[0;32mI (1571868) mqtt_pub: published to agri_sense/demo: hello from pub #313 (msg_id=37908)[0m
+[0;32mI (1572118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=37908[0m
+[0;32mI (1576868) mqtt_pub: published to agri_sense/demo: hello from pub #314 (msg_id=58510)[0m
+[0;32mI (1577138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=58510[0m
+[0;32mI (1581868) mqtt_pub: published to agri_sense/demo: hello from pub #315 (msg_id=14889)[0m
+[0;32mI (1582158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=14889[0m
+[0;32mI (1586868) mqtt_pub: published to agri_sense/demo: hello from pub #316 (msg_id=27680)[0m
+[0;32mI (1587178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=27680[0m
+[0;32mI (1591868) mqtt_pub: published to agri_sense/demo: hello from pub #317 (msg_id=52370)[0m
+[0;32mI (1592188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=52370[0m
+[0;32mI (1596868) mqtt_pub: published to agri_sense/demo: hello from pub #318 (msg_id=44081)[0m
+[0;32mI (1597208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=44081[0m
+����������������������������������������������������������������(1601868) mqtt_pub: published to agri_sense/demo: hello from pub #319 (msg_id=18016)
+[0;32mI (1602328) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=18016[0m
+[0;32mI (1606868) mqtt_pub: published to agri_sense/demo: hello from pub #320 (msg_id=15040)[0m
+[0;32mI (1607138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=15040[0m
+[0;32mI (1611868) mqtt_pub: published to agri_sense/demo: hello from pub #321 (msg_id=17228)[0m
+[0;32mI (1612258) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=17228[0m
+[0;32mI (1616868) mqtt_pub: published to agri_sense/demo: hello from pub #322 (msg_id=29375)[0m
+[0;32mI (1617178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=29375[0m
+[0;32mI (1621868) mqtt_pub: published to agri_sense/demo: hello from pub #323 (msg_id=5006)[0m
+[0;32mI (1622198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=5006[0m
+[0;32mI (1626868) mqtt_pub: published to agri_sense/demo: hello from pub #324 (msg_id=60311)[0m
+[0;32mI (1627108) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=60311[0m
+[0;32mI (1631868) mqtt_pub: published to agri_sense/demo: hello from pub #325 (msg_id=12289)[0m
+[0;32mI (1632128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=12289[0m
+[0;32mI (1636868) mqtt_pub: published to agri_sense/demo: hello from pub #326 (msg_id=48826)[0m
+[0;32mI (1637148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=48826[0m
+[0;32mI (1641868) mqtt_pub: published to agri_sense/demo: hello from pub #327 (msg_id=38661)[0m
+[0;32mI (1642168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=38661[0m
+[0;32mI (1646868) mqtt_pub: published to agri_sense/demo: hello from pub #328 (msg_id=24749)[0m
+[0;32mI (1647178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=24749[0m
+[0;32mI (1651868) mqtt_pub: published to agri_sense/demo: hello from pub #329 (msg_id=25332)[0m
+[0;32mI (1652198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=25332[0m
+[0;32mI (1656868) mqtt_pub: published to agri_sense/demo: hello from pub #330 (msg_id=65325)[0m
+[0;32mI (1657118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=65325[0m
+[0;32mI (1661868) mqtt_pub: published to agri_sense/demo: hello from pub #331 (msg_id=51659)[0m
+[0;32mI (1662138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=51659[0m
+[0;32mI (1666868) mqtt_pub: published to agri_sense/demo: hello from pub #332 (msg_id=61998)[0m
+[0;32mI (1667148) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=61998[0m
+[0;32mI (1671868) mqtt_pub: published to agri_sense/demo: hello from pub #333 (msg_id=59896)[0m
+[0;32mI (1672168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=59896[0m
+[0;32mI (1676868) mqtt_pub: published to agri_sense/demo: hello from pub #334 (msg_id=46096)[0m
+[0;32mI (1677188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=46096[0m
+[0;32mI (1681868) mqtt_pub: published to agri_sense/demo: hello from pub #335 (msg_id=54833)[0m
+[0;32mI (1682208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=54833[0m
+[0;32mI (1686868) mqtt_pub: published to agri_sense/demo: hello from pub #336 (msg_id=31997)[0m
+[0;32mI (1687118) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=31997[0m
+[0;32mI (1691868) mqtt_pub: published to agri_sense/demo: hello from pub #337 (msg_id=19032)[0m
+[0;32mI (1692138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=19032[0m
+[0;32mI (1696868) mqtt_pub: published to agri_sense/demo: hello from pub #338 (msg_id=33561)[0m
+[0;32mI (1697158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=33561[0m
+[0;32mI (1701868) mqtt_pub: published to agri_sense/demo: hello from pub #339 (msg_id=22502)[0m
+[0;32mI (1702168) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=22502[0m
+[0;32mI (1706868) mqtt_pub: published to agri_sense/demo: hello from pub #340 (msg_id=40683)[0m
+[0;32mI (1707188) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40683[0m
+[0;32mI (1711868) mqtt_pub: published to agri_sense/demo: hello from pub #341 (msg_id=40705)[0m
+[0;32mI (1712208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=40705[0m
+[0;32mI (1716868) mqtt_pub: published to agri_sense/demo: hello from pub #342 (msg_id=46467)[0m
+[0;32mI (1717128) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=46467[0m
+[0;32mI (1721868) mqtt_pub: published to agri_sense/demo: hello from pub #343 (msg_id=41603)[0m
+[0;32mI (1722138) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=41603[0m
+[0;32mI (1726868) mqtt_pub: published to agri_sense/demo: hello from pub #344 (msg_id=23648)[0m
+[0;32mI (1727158) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=23648[0m
+[0;32mI (1731868) mqtt_pub: published to agri_sense/demo: hello from pub #345 (msg_id=13480)[0m
+[0;32mI (1732178) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=13480[0m
+[0;32mI (1736868) mqtt_pub: published to agri_sense/demo: hello from pub #346 (msg_id=32784)[0m
+[0;32mI (1737198) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=32784[0m
+[0;32mI (1741868) mqtt_pub: published to agri_sense/demo: hello from pub #347 (msg_id=9836)[0m
+[0;32mI (1742208) mqtt_pub: MQTT_EVENT_PUBLISHED, msg_id=9836[0m
+[0;32mI (1746868) mqtt_pub: published to agri_sense/demo: hello from pub #348 (msg_id=3
