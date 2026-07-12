@@ -9,6 +9,7 @@ namespace agri::telemetry {
 struct PumpStatus {
     bool enabled = false;
     bool running = false;
+    bool manual = false;
 };
 
 // Builds compact JSON for the Qt dashboard.

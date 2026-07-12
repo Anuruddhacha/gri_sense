@@ -23,6 +23,7 @@ bool toJson(const char* device_id,
         "\"soil_ph\":%.2f,"
         "\"pump_enabled\":%s,"
         "\"pump_running\":%s,"
+        "\"pump_manual\":%s,"
         "\"uptime_ms\":%lu"
         "}",
         device_id,
@@ -33,6 +34,7 @@ bool toJson(const char* device_id,
         static_cast<double>(data.soil_ph),
         pump.enabled ? "true" : "false",
         pump.running ? "true" : "false",
+        pump.manual ? "true" : "false",
         uptime_ms);
 
     return n > 0 && static_cast<size_t>(n) < buffer_len;

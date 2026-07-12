@@ -24,11 +24,14 @@ private slots:
     void onTelemetryChanged();
     void onEnablePump();
     void onDisablePump();
+    void onManualStart();
+    void onManualStop();
 
 private:
     void buildUi();
     void applyStyle();
     void sendPumpEnabled(bool enabled);
+    void sendPumpCommand(const char* command);
     void updatePumpUi();
 
     model::TelemetryModel model_;
@@ -46,6 +49,8 @@ private:
 
     QLabel* pumpStateLabel_ = nullptr;
     QLabel* pumpModeLabel_ = nullptr;
+    QPushButton* startBtn_ = nullptr;
+    QPushButton* stopBtn_ = nullptr;
     QPushButton* enableBtn_ = nullptr;
     QPushButton* disableBtn_ = nullptr;
 };

@@ -96,15 +96,25 @@ void MainWindow::buildUi()
     pumpText->addWidget(pumpModeLabel_);
     pumpLayout->addLayout(pumpText, 1);
 
-    enableBtn_ = new QPushButton(QStringLiteral("Enable"), pumpPanel);
-    disableBtn_ = new QPushButton(QStringLiteral("Disable"), pumpPanel);
+    enableBtn_ = new QPushButton(QStringLiteral("Auto On"), pumpPanel);
+    disableBtn_ = new QPushButton(QStringLiteral("Auto Off"), pumpPanel);
+    startBtn_ = new QPushButton(QStringLiteral("Start"), pumpPanel);
+    stopBtn_ = new QPushButton(QStringLiteral("Stop"), pumpPanel);
     enableBtn_->setObjectName(QStringLiteral("enableBtn"));
     disableBtn_->setObjectName(QStringLiteral("disableBtn"));
+    startBtn_->setObjectName(QStringLiteral("startBtn"));
+    stopBtn_->setObjectName(QStringLiteral("stopBtn"));
     enableBtn_->setCursor(Qt::PointingHandCursor);
     disableBtn_->setCursor(Qt::PointingHandCursor);
+    startBtn_->setCursor(Qt::PointingHandCursor);
+    stopBtn_->setCursor(Qt::PointingHandCursor);
     connect(enableBtn_, &QPushButton::clicked, this, &MainWindow::onEnablePump);
     connect(disableBtn_, &QPushButton::clicked, this, &MainWindow::onDisablePump);
+    connect(startBtn_, &QPushButton::clicked, this, &MainWindow::onManualStart);
+    connect(stopBtn_, &QPushButton::clicked, this, &MainWindow::onManualStop);
 
+    pumpLayout->addWidget(startBtn_);
+    pumpLayout->addWidget(stopBtn_);
     pumpLayout->addWidget(enableBtn_);
     pumpLayout->addWidget(disableBtn_);
     root->addWidget(pumpPanel);
@@ -130,10 +140,10 @@ void MainWindow::applyStyle()
         "#pumpTitle { font-size: 16px; font-weight: 600; color: #d8f3dc; }"
         "#pumpState { font-size: 22px; font-weight: 650; }"
         "#pumpMode { color: #9bb5a2; font-size: 13px; }"
-        "#enableBtn, #disableBtn { min-width: 110px; padding: 10px 16px; border-radius: 8px;"
+        "#enableBtn, #disableBtn, #startBtn, #stopBtn { min-width: 100px; padding: 10px 16px; border-radius: 8px;"
         "  border: 1px solid #3a6b4c; background: #214533; color: #e7f0e8; font-weight: 600; }"
-        "#enableBtn:hover { background: #2a5a40; }"
-        "#disableBtn:hover { background: #5a322a; border-color: #8a4a3a; }"
+        "#enableBtn:hover, #startBtn:hover { background: #2a5a40; }"
+        "#disableBtn:hover, #stopBtn:hover { background: #5a322a; border-color: #8a4a3a; }"
         "#pumpState[running=\"true\"] { color: #7CFF9A; }"
         "#pumpState[running=\"false\"] { color: #FFB4A2; }"));
 }
@@ -182,9 +192,13 @@ void MainWindow::updatePumpUi()
     pumpStateLabel_->style()->unpolish(pumpStateLabel_);
     pumpStateLabel_->style()->polish(pumpStateLabel_);
 
-    pumpModeLabel_->setText(model_.pumpEnabled()
-                                ? QStringLiteral("Auto irrigation: ENABLED")
-                                : QStringLiteral("Auto irrigation: DISABLED"));
+    if (model_.pumpManual()) {
+        pumpModeLabel_->setText(QStringLiteral("Mode: MANUAL"));
+    } else if (model_.pumpEnabled()) {
+        pumpModeLabel_->setText(QStringLiteral("Mode: AUTO (enabled)"));
+    } else {
+        pumpModeLabel_->setText(QStringLiteral("Mode: AUTO (disabled)"));
+    }
 }
 
 void MainWindow::sendPumpEnabled(bool enabled)
@@ -192,8 +206,17 @@ void MainWindow::sendPumpEnabled(bool enabled)
     const QByteArray payload = enabled ? QByteArrayLiteral("{\"pump_enabled\":true}")
                                        : QByteArrayLiteral("{\"pump_enabled\":false}");
     if (mqtt_ && mqtt_->publish(QString::fromUtf8(agri::config::kCommandTopic), payload)) {
-        statusLabel_->setText(enabled ? QStringLiteral("Sent: enable water supply")
-                                      : QStringLiteral("Sent: disable water supply"));
+        statusLabel_->setText(enabled ? QStringLiteral("Sent: auto irrigation ON")
+                                      : QStringLiteral("Sent: auto irrigation OFF"));
+    }
+}
+
+void MainWindow::sendPumpCommand(const char* command)
+{
+    const QByteArray payload =
+        QByteArray("{\"pump_command\":\"") + command + "\"}";
+    if (mqtt_ && mqtt_->publish(QString::fromUtf8(agri::config::kCommandTopic), payload)) {
+        statusLabel_->setText(QStringLiteral("Sent: manual %1").arg(QString::fromUtf8(command)));
     }
 }
 
@@ -205,6 +228,16 @@ void MainWindow::onEnablePump()
 void MainWindow::onDisablePump()
 {
     sendPumpEnabled(false);
+}
+
+void MainWindow::onManualStart()
+{
+    sendPumpCommand("start");
+}
+
+void MainWindow::onManualStop()
+{
+    sendPumpCommand("stop");
 }
 
 }  // namespace agri::ui

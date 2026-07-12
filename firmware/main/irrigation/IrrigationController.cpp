@@ -17,10 +17,25 @@ IrrigationController::IrrigationController(actuators::WaterPump& pump)
 void IrrigationController::setEnabled(bool enabled)
 {
     enabled_ = enabled;
+    manual_mode_ = false;  // return control to auto logic
     ESP_LOGI(TAG, "auto irrigation %s", enabled_ ? "ENABLED" : "DISABLED");
     if (!enabled_) {
         pump_.setRunning(false);
     }
+}
+
+void IrrigationController::manualStart()
+{
+    manual_mode_ = true;
+    pump_.setRunning(true);
+    ESP_LOGI(TAG, "manual START");
+}
+
+void IrrigationController::manualStop()
+{
+    manual_mode_ = true;
+    pump_.setRunning(false);
+    ESP_LOGI(TAG, "manual STOP");
 }
 
 bool IrrigationController::isPumpRunning() const
@@ -30,6 +45,10 @@ bool IrrigationController::isPumpRunning() const
 
 void IrrigationController::evaluate(const sensors::AgriTelemetry& sample)
 {
+    if (manual_mode_) {
+        return;  // dashboard Start/Stop owns the pump
+    }
+
     if (!enabled_) {
         pump_.setRunning(false);
         return;

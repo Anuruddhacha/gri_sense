@@ -22,6 +22,7 @@ std::optional<TelemetryData> TelemetryParser::fromJson(const QByteArray& payload
     data.soilPh = obj.value(QStringLiteral("soil_ph")).toDouble();
     data.pumpEnabled = obj.value(QStringLiteral("pump_enabled")).toBool();
     data.pumpRunning = obj.value(QStringLiteral("pump_running")).toBool();
+    data.pumpManual = obj.value(QStringLiteral("pump_manual")).toBool();
     data.uptimeMs = static_cast<qint64>(obj.value(QStringLiteral("uptime_ms")).toDouble());
     data.valid = !data.deviceId.isEmpty();
     return data;

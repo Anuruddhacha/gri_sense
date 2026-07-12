@@ -43,7 +43,19 @@ void handleCommand(const char* topic, int topic_len, const char* data, int data_
     std::memcpy(cmd, data, static_cast<size_t>(n));
     cmd[n] = '\0';
 
-    // Accept: {"pump_enabled":true} / {"pump_enabled":false}
+    // Accept:
+    //   {"pump_enabled":true|false}  auto irrigation
+    //   {"pump_command":"start|stop"} manual motor control
+    if (std::strstr(cmd, "\"pump_command\":\"start\"") != nullptr ||
+        std::strstr(cmd, "\"pump_command\": \"start\"") != nullptr) {
+        irrigation->manualStart();
+        return;
+    }
+    if (std::strstr(cmd, "\"pump_command\":\"stop\"") != nullptr ||
+        std::strstr(cmd, "\"pump_command\": \"stop\"") != nullptr) {
+        irrigation->manualStop();
+        return;
+    }
     if (std::strstr(cmd, "\"pump_enabled\":true") != nullptr ||
         std::strstr(cmd, "\"pump_enabled\": true") != nullptr) {
         irrigation->setEnabled(true);
@@ -79,6 +91,7 @@ void publishTask(void* arg)
         agri::telemetry::PumpStatus pump{
             ctx->irrigation->isEnabled(),
             ctx->irrigation->isPumpRunning(),
+            ctx->irrigation->isManualMode(),
         };
 
         const auto uptime_ms = static_cast<unsigned long>(esp_timer_get_time() / 1000);
