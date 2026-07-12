@@ -1,0 +1,64 @@
+# --- OS ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Editors / IDE ---
+.vscode/
+.idea/
+*.user
+*.user.*
+*.suo
+*.autosave
+*.swp
+*~
+
+# --- Build outputs (inside firmware / qt_dashboard) ---
+firmware/build/
+qt_dashboard/build/
+qt_dashboard/build-mingw/
+
+# --- ESP-IDF ---
+firmware/sdkconfig.old
+firmware/managed_components/
+firmware/.vscode/
+
+# --- Qt dashboard deps ---
+qt_dashboard/third_party/paho.mqtt.c/
+qt_dashboard/CMakeLists.txt.user
+qt_dashboard/*.pro.user
+
+# --- CMake / compilers ---
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
+**/compile_commands.json
+**/CTestTestfile.cmake
+**/Testing/
+**/*.ninja
+**/.ninja_deps
+**/.ninja_log
+
+# --- Binaries / objects ---
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.elf
+*.bin
+*.map
+*.hex
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Logs / temp ---
+*.log
+*.tmp
+*.bak

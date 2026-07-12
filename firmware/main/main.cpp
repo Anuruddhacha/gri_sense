@@ -76,7 +76,8 @@ extern "C" void app_main(void)
         return;
     }
 
-    agri::sensors::SensorBoard board(
+    // Must outlive publish_task (app_main returns; do not keep these on the stack).
+    static agri::sensors::SensorBoard board(
         std::make_unique<agri::sensors::Dht22TempHumidity>(agri::config::kDht22Gpio),
         std::make_unique<agri::sensors::CapacitiveSoilMoisture>(agri::config::kSoilMoistureAdcGpio),
         std::make_unique<agri::sensors::Bh1750LightSensor>(
@@ -88,7 +89,7 @@ extern "C" void app_main(void)
         return;
     }
 
-    agri::mqtt::MqttPublisher mqtt;
+    static agri::mqtt::MqttPublisher mqtt;
     if (!mqtt.start(agri::config::kMqttBrokerUri)) {
         ESP_LOGE(TAG, "MQTT start failed");
         return;

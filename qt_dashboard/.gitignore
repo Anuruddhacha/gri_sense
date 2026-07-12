@@ -1,0 +1,3 @@
+# Local overrides (root .gitignore covers builds)
+*.user
+*.autosave
