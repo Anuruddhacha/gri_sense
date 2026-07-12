@@ -15,6 +15,8 @@ class TelemetryModel : public QObject {
     Q_PROPERTY(double soilMoisturePct READ soilMoisturePct NOTIFY telemetryChanged)
     Q_PROPERTY(double lightLux READ lightLux NOTIFY telemetryChanged)
     Q_PROPERTY(double soilPh READ soilPh NOTIFY telemetryChanged)
+    Q_PROPERTY(bool pumpEnabled READ pumpEnabled NOTIFY telemetryChanged)
+    Q_PROPERTY(bool pumpRunning READ pumpRunning NOTIFY telemetryChanged)
     Q_PROPERTY(bool hasData READ hasData NOTIFY telemetryChanged)
     Q_PROPERTY(QString lastUpdateText READ lastUpdateText NOTIFY telemetryChanged)
 
@@ -29,6 +31,8 @@ public:
     double soilMoisturePct() const { return data_.soilMoisturePct; }
     double lightLux() const { return data_.lightLux; }
     double soilPh() const { return data_.soilPh; }
+    bool pumpEnabled() const { return data_.pumpEnabled; }
+    bool pumpRunning() const { return data_.pumpRunning; }
     bool hasData() const { return data_.valid; }
     QString lastUpdateText() const { return lastUpdateText_; }
 

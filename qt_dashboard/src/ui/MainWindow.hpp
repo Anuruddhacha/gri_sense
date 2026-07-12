@@ -6,6 +6,7 @@
 
 #include <QLabel>
 #include <QMainWindow>
+#include <QPushButton>
 #include <memory>
 
 namespace agri::ui {
@@ -21,10 +22,14 @@ private slots:
     void onConnected(bool connected);
     void onMessage(const QByteArray& payload);
     void onTelemetryChanged();
+    void onEnablePump();
+    void onDisablePump();
 
 private:
     void buildUi();
     void applyStyle();
+    void sendPumpEnabled(bool enabled);
+    void updatePumpUi();
 
     model::TelemetryModel model_;
     std::unique_ptr<mqtt::MqttSubscriber> mqtt_;
@@ -38,6 +43,11 @@ private:
     SensorTile* moistureTile_ = nullptr;
     SensorTile* lightTile_ = nullptr;
     SensorTile* phTile_ = nullptr;
+
+    QLabel* pumpStateLabel_ = nullptr;
+    QLabel* pumpModeLabel_ = nullptr;
+    QPushButton* enableBtn_ = nullptr;
+    QPushButton* disableBtn_ = nullptr;
 };
 
 }  // namespace agri::ui

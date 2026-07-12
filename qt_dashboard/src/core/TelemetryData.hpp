@@ -11,6 +11,8 @@ struct TelemetryData {
     double soilMoisturePct = 0.0;
     double lightLux = 0.0;
     double soilPh = 0.0;
+    bool pumpEnabled = false;
+    bool pumpRunning = false;
     qint64 uptimeMs = 0;
     bool valid = false;
 };

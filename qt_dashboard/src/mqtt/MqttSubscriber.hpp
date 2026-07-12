@@ -18,6 +18,7 @@ public:
 
     bool connectToBroker(const QString& brokerUri, const QString& clientId);
     bool subscribe(const QString& topic);
+    bool publish(const QString& topic, const QByteArray& payload);
     void disconnectFromBroker();
     bool isConnected() const { return connected_; }
 

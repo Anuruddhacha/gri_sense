@@ -1,4 +1,6 @@
+#include "actuators/WaterPump.hpp"
 #include "config/AppConfig.hpp"
+#include "irrigation/IrrigationController.hpp"
 #include "mqtt/MqttPublisher.hpp"
 #include "sensors/AnalogPhSensor.hpp"
 #include "sensors/Bh1750LightSensor.hpp"
@@ -8,6 +10,7 @@
 #include "telemetry/TelemetryJson.hpp"
 #include "wifi/WifiStation.hpp"
 
+#include <cstring>
 #include <memory>
 
 #include "esp_log.h"
@@ -23,12 +26,39 @@ const char* TAG = "app";
 struct AppContext {
     agri::sensors::SensorBoard* board = nullptr;
     agri::mqtt::MqttPublisher* mqtt = nullptr;
+    agri::irrigation::IrrigationController* irrigation = nullptr;
 };
+
+void handleCommand(const char* topic, int topic_len, const char* data, int data_len, void* ctx)
+{
+    (void)topic;
+    (void)topic_len;
+    auto* irrigation = static_cast<agri::irrigation::IrrigationController*>(ctx);
+    if (irrigation == nullptr || data == nullptr || data_len <= 0) {
+        return;
+    }
+
+    char cmd[160];
+    const int n = data_len < static_cast<int>(sizeof(cmd) - 1) ? data_len : static_cast<int>(sizeof(cmd) - 1);
+    std::memcpy(cmd, data, static_cast<size_t>(n));
+    cmd[n] = '\0';
+
+    // Accept: {"pump_enabled":true} / {"pump_enabled":false}
+    if (std::strstr(cmd, "\"pump_enabled\":true") != nullptr ||
+        std::strstr(cmd, "\"pump_enabled\": true") != nullptr) {
+        irrigation->setEnabled(true);
+        return;
+    }
+    if (std::strstr(cmd, "\"pump_enabled\":false") != nullptr ||
+        std::strstr(cmd, "\"pump_enabled\": false") != nullptr) {
+        irrigation->setEnabled(false);
+    }
+}
 
 void publishTask(void* arg)
 {
     auto* ctx = static_cast<AppContext*>(arg);
-    char json[256];
+    char json[384];
 
     while (true) {
         if (!ctx->mqtt->isConnected()) {
@@ -44,8 +74,15 @@ void publishTask(void* arg)
             continue;
         }
 
+        ctx->irrigation->evaluate(sample);
+
+        agri::telemetry::PumpStatus pump{
+            ctx->irrigation->isEnabled(),
+            ctx->irrigation->isPumpRunning(),
+        };
+
         const auto uptime_ms = static_cast<unsigned long>(esp_timer_get_time() / 1000);
-        if (!agri::telemetry::toJson(agri::config::kDeviceId, sample, uptime_ms, json, sizeof(json))) {
+        if (!agri::telemetry::toJson(agri::config::kDeviceId, sample, pump, uptime_ms, json, sizeof(json))) {
             ESP_LOGE(TAG, "JSON encode failed");
             vTaskDelay(pdMS_TO_TICKS(agri::config::kPublishIntervalMs));
             continue;
@@ -76,7 +113,6 @@ extern "C" void app_main(void)
         return;
     }
 
-    // Must outlive publish_task (app_main returns; do not keep these on the stack).
     static agri::sensors::SensorBoard board(
         std::make_unique<agri::sensors::Dht22TempHumidity>(agri::config::kDht22Gpio),
         std::make_unique<agri::sensors::CapacitiveSoilMoisture>(agri::config::kSoilMoistureAdcGpio),
@@ -89,12 +125,21 @@ extern "C" void app_main(void)
         return;
     }
 
+    static agri::actuators::WaterPump pump(agri::config::kWaterPumpGpio);
+    if (!pump.init()) {
+        ESP_LOGE(TAG, "water pump init failed");
+        return;
+    }
+
+    static agri::irrigation::IrrigationController irrigation(pump);
+
     static agri::mqtt::MqttPublisher mqtt;
-    if (!mqtt.start(agri::config::kMqttBrokerUri)) {
+    mqtt.setCommandCallback(&handleCommand, &irrigation);
+    if (!mqtt.start(agri::config::kMqttBrokerUri, agri::config::kMqttCommandTopic)) {
         ESP_LOGE(TAG, "MQTT start failed");
         return;
     }
 
-    static AppContext ctx{&board, &mqtt};
+    static AppContext ctx{&board, &mqtt, &irrigation};
     xTaskCreate(publishTask, "publish_task", 6144, &ctx, 5, nullptr);
 }

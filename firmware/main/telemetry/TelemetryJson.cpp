@@ -6,6 +6,7 @@ namespace agri::telemetry {
 
 bool toJson(const char* device_id,
             const sensors::AgriTelemetry& data,
+            const PumpStatus& pump,
             unsigned long uptime_ms,
             char* buffer,
             size_t buffer_len)
@@ -20,6 +21,8 @@ bool toJson(const char* device_id,
         "\"soil_moisture_pct\":%.2f,"
         "\"light_lux\":%.1f,"
         "\"soil_ph\":%.2f,"
+        "\"pump_enabled\":%s,"
+        "\"pump_running\":%s,"
         "\"uptime_ms\":%lu"
         "}",
         device_id,
@@ -28,6 +31,8 @@ bool toJson(const char* device_id,
         static_cast<double>(data.soil_moisture_pct),
         static_cast<double>(data.light_lux),
         static_cast<double>(data.soil_ph),
+        pump.enabled ? "true" : "false",
+        pump.running ? "true" : "false",
         uptime_ms);
 
     return n > 0 && static_cast<size_t>(n) < buffer_len;

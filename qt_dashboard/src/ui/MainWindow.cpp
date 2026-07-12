@@ -3,8 +3,10 @@
 #include "config/AppConfig.hpp"
 #include "core/TelemetryParser.hpp"
 
+#include <QFrame>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QStyle>
 #include <QWidget>
 #include <QVBoxLayout>
 
@@ -34,7 +36,7 @@ void MainWindow::buildUi()
     auto* central = new QWidget(this);
     setCentralWidget(central);
     setWindowTitle(QStringLiteral("AgriSense Dashboard"));
-    resize(960, 640);
+    resize(980, 720);
 
     auto* root = new QVBoxLayout(central);
     root->setContentsMargins(28, 24, 28, 24);
@@ -76,6 +78,37 @@ void MainWindow::buildUi()
     grid->addWidget(phTile_, 1, 1);
     root->addLayout(grid, 1);
 
+    auto* pumpPanel = new QFrame(this);
+    pumpPanel->setObjectName(QStringLiteral("pumpPanel"));
+    auto* pumpLayout = new QHBoxLayout(pumpPanel);
+    pumpLayout->setContentsMargins(20, 16, 20, 16);
+    pumpLayout->setSpacing(16);
+
+    auto* pumpText = new QVBoxLayout();
+    auto* pumpTitle = new QLabel(QStringLiteral("Water Pump"), pumpPanel);
+    pumpTitle->setObjectName(QStringLiteral("pumpTitle"));
+    pumpStateLabel_ = new QLabel(QStringLiteral("Motor: --"), pumpPanel);
+    pumpStateLabel_->setObjectName(QStringLiteral("pumpState"));
+    pumpModeLabel_ = new QLabel(QStringLiteral("Auto irrigation: --"), pumpPanel);
+    pumpModeLabel_->setObjectName(QStringLiteral("pumpMode"));
+    pumpText->addWidget(pumpTitle);
+    pumpText->addWidget(pumpStateLabel_);
+    pumpText->addWidget(pumpModeLabel_);
+    pumpLayout->addLayout(pumpText, 1);
+
+    enableBtn_ = new QPushButton(QStringLiteral("Enable"), pumpPanel);
+    disableBtn_ = new QPushButton(QStringLiteral("Disable"), pumpPanel);
+    enableBtn_->setObjectName(QStringLiteral("enableBtn"));
+    disableBtn_->setObjectName(QStringLiteral("disableBtn"));
+    enableBtn_->setCursor(Qt::PointingHandCursor);
+    disableBtn_->setCursor(Qt::PointingHandCursor);
+    connect(enableBtn_, &QPushButton::clicked, this, &MainWindow::onEnablePump);
+    connect(disableBtn_, &QPushButton::clicked, this, &MainWindow::onDisablePump);
+
+    pumpLayout->addWidget(enableBtn_);
+    pumpLayout->addWidget(disableBtn_);
+    root->addWidget(pumpPanel);
+
     statusLabel_ = new QLabel(QStringLiteral("Starting..."), this);
     statusLabel_->setObjectName(QStringLiteral("status"));
     root->addWidget(statusLabel_);
@@ -92,7 +125,17 @@ void MainWindow::applyStyle()
         "  stop:0 #1b3326, stop:1 #163024); border: 1px solid #2f5a40; border-radius: 14px; }"
         "#tileTitle { color: #a7c4b0; font-size: 13px; }"
         "#tileValue { color: #f4fff6; font-size: 40px; font-weight: 650; }"
-        "#tileUnit { color: #7f9f88; font-size: 12px; }"));
+        "#tileUnit { color: #7f9f88; font-size: 12px; }"
+        "#pumpPanel { background: #183226; border: 1px solid #3a6b4c; border-radius: 14px; }"
+        "#pumpTitle { font-size: 16px; font-weight: 600; color: #d8f3dc; }"
+        "#pumpState { font-size: 22px; font-weight: 650; }"
+        "#pumpMode { color: #9bb5a2; font-size: 13px; }"
+        "#enableBtn, #disableBtn { min-width: 110px; padding: 10px 16px; border-radius: 8px;"
+        "  border: 1px solid #3a6b4c; background: #214533; color: #e7f0e8; font-weight: 600; }"
+        "#enableBtn:hover { background: #2a5a40; }"
+        "#disableBtn:hover { background: #5a322a; border-color: #8a4a3a; }"
+        "#pumpState[running=\"true\"] { color: #7CFF9A; }"
+        "#pumpState[running=\"false\"] { color: #FFB4A2; }"));
 }
 
 void MainWindow::onStatus(const QString& text)
@@ -127,6 +170,41 @@ void MainWindow::onTelemetryChanged()
     moistureTile_->setValue(model_.soilMoisturePct(), 1);
     lightTile_->setValue(model_.lightLux(), 0);
     phTile_->setValue(model_.soilPh(), 2);
+    updatePumpUi();
+}
+
+void MainWindow::updatePumpUi()
+{
+    const bool running = model_.pumpRunning();
+    pumpStateLabel_->setText(running ? QStringLiteral("Motor: RUNNING")
+                                     : QStringLiteral("Motor: STOPPED"));
+    pumpStateLabel_->setProperty("running", running);
+    pumpStateLabel_->style()->unpolish(pumpStateLabel_);
+    pumpStateLabel_->style()->polish(pumpStateLabel_);
+
+    pumpModeLabel_->setText(model_.pumpEnabled()
+                                ? QStringLiteral("Auto irrigation: ENABLED")
+                                : QStringLiteral("Auto irrigation: DISABLED"));
+}
+
+void MainWindow::sendPumpEnabled(bool enabled)
+{
+    const QByteArray payload = enabled ? QByteArrayLiteral("{\"pump_enabled\":true}")
+                                       : QByteArrayLiteral("{\"pump_enabled\":false}");
+    if (mqtt_ && mqtt_->publish(QString::fromUtf8(agri::config::kCommandTopic), payload)) {
+        statusLabel_->setText(enabled ? QStringLiteral("Sent: enable water supply")
+                                      : QStringLiteral("Sent: disable water supply"));
+    }
+}
+
+void MainWindow::onEnablePump()
+{
+    sendPumpEnabled(true);
+}
+
+void MainWindow::onDisablePump()
+{
+    sendPumpEnabled(false);
 }
 
 }  // namespace agri::ui

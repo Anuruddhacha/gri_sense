@@ -101,6 +101,22 @@ bool MqttSubscriber::subscribe(const QString& topic)
     return true;
 }
 
+bool MqttSubscriber::publish(const QString& topic, const QByteArray& payload)
+{
+    if (!client_ || !connected_) {
+        emit statusMessage(QStringLiteral("Cannot publish: not connected"));
+        return false;
+    }
+
+    const int rc = MQTTClient_publish(client_, topic.toUtf8().constData(), payload.size(),
+                                      payload.constData(), 1, 0, nullptr);
+    if (rc != MQTTCLIENT_SUCCESS) {
+        emit statusMessage(QStringLiteral("Publish failed (%1)").arg(rc));
+        return false;
+    }
+    return true;
+}
+
 void MqttSubscriber::disconnectFromBroker()
 {
     if (!client_) {
